@@ -11,7 +11,7 @@ RUN set -eux; \
     apt update; \
     apt install -y --no-install-recommends ubuntu-keyring; \
     apt update; \
-    apt install -y mc; \
+    apt install -y wget figlet mc; \
     apt autoremove -y; \
     apt autoclean -y;
 
@@ -23,5 +23,7 @@ ENV SKIP_DEMO_DATA=true \
     COMMUNITY_EXTENSIONS=ogr-datastore,jdbcconfig,jdbcstore,sec-oauth2-crg
 
 EXPOSE 8080
+
+RUN echo 'figlet -t CRG Docker GeoServer '2.27.1 >> ~/.bashrc
 
 ENTRYPOINT ["bash", "/opt/startup.sh"]
