@@ -13,5 +13,6 @@ fi
 
 echo "  Building GeoServer image version: '${REGISTRY_HOST}/geoserver:${TAG}'"
 docker build \
+  --no-cache \
   --build-arg PASSWORD="${PASSWORD}" \
   -t "${REGISTRY_HOST}/geoserver:${TAG}" .
