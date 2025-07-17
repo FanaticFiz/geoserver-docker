@@ -3,7 +3,7 @@ LABEL MAINTAINER="Denis Alekseev <fiz.alekseev@yandex.ru>"
 
 ARG PASSWORD
 
-COPY resources/*.zip /tmp/resources/plugins/community_plugins/
+COPY resources/geoserver-2.27-SNAPSHOT-sec-oauth2-google-plugin/* /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
 
 COPY resources/jjwt-0.9.1.jar /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
 COPY resources/gs-sec-oauth2-google-2.27-SNAPSHOT.jar /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
