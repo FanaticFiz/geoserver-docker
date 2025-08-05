@@ -9,15 +9,19 @@ COPY resources/geoserver-2.27-SNAPSHOT-sec-oauth2-google-plugin/* /usr/local/tom
 COPY resources/jjwt-0.9.1.jar /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
 COPY resources/gs-sec-oauth2-google-2.27-SNAPSHOT.jar /usr/local/tomcat/webapps/geoserver/WEB-INF/lib/
 
+COPY resources/setenv.sh /usr/local/tomcat/bin
+
 RUN chmod 1777 /tmp
 
 RUN set -eux; \
     apt update; \
     apt install -y --no-install-recommends ubuntu-keyring; \
     apt update; \
-    apt install -y mc; \
+    apt install -y mc wget; \
     apt autoremove -y; \
     apt autoclean -y;
+
+RUN wget -O /opt/apm-agent.jar https://search.maven.org/remotecontent?filepath=co/elastic/apm/elastic-apm-agent/1.55.0/elastic-apm-agent-1.55.0.jar
 
 ENV SKIP_DEMO_DATA=true \
     GEOSERVER_ADMIN_USER=admin \
