@@ -1,4 +1,4 @@
-FROM kartoza/geoserver:2.27.1
+FROM kartoza/geoserver:2.27.2
 LABEL MAINTAINER="Denis Alekseev <fiz.alekseev@yandex.ru>"
 
 ARG PASSWORD
@@ -31,6 +31,6 @@ ENV SKIP_DEMO_DATA=true \
 
 EXPOSE 8080
 
-RUN echo 'figlet -t CRG Docker GeoServer '2.27.1 >> ~/.bashrc
+RUN echo 'figlet -t CRG Docker GeoServer '2.27.2 >> ~/.bashrc
 
 ENTRYPOINT ["/bin/bash", "/scripts/entrypoint.sh"]
